@@ -50,6 +50,11 @@ input[type="file"]{
 	border:none;
 	border-radius:6px; 
 }
+
+.app-header-buttons .capture-button i{
+	font-size:2vw;
+	margin-bottom:4px;
+}
 #capture{
 	padding:20px; 
 	background:#000;
@@ -128,17 +133,13 @@ input[type="file"]{
 }
 #capture .img-lists__element .month span .fa-solid{
 	display:inline-block;
-	margin-top:5%;
-	font-size:1.2vw;
+	margin-top:0.5em;
+	font-size:1em;
 }
 #app .not-captured {
 	margin-top:20px;
 }
  
-#app .capture-button i{
-	font-size:2vw;
-	margin-bottom:4px;
-}
 #app .description {
 	width:100%;
 	padding:14px 20px;
