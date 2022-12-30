@@ -8,7 +8,15 @@
 	<title>Year Of Pictures</title>
 </head>
 <body>
-	<div class="app">
+	<div id="app" class="default-screen">
+		<div class="app-header-buttons">
+			<button class="screen-control set-default-screen">DEFAULT SIZE</button>
+			<button class="screen-control set-huge-screen">HUGE SIZE</button>
+			<button class="capture-button">
+				<i class="fa-solid fa-camera"></i>
+				Capture
+			</button>
+		</div>
 		<div id="capture">
 			<h1></h1>
 			<div class="img-lists">
@@ -110,12 +118,9 @@
 			<input id="nov" type="file" accept="image/*">
 			<input id="dec" type="file" accept="image/*">
 		</div>
-		<div class="not-captured">
-			<button class="not-captured__capture-button" onclick="captureForYear()">Capture</button>
-			<div class="not-captured__description">
-				<p>* Upload your drawings by clicking each month.</p>
-				<p>* The capture button and below descriptions are not be captured.</p>
-			</div>
+		<div class="description">
+			<p>* Upload your drawings by clicking each month.</p>
+			<p>* Title and image lists are only captured when you click the capture button.</p>
 		</div>
 	</div>	
 </body>
