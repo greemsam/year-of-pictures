@@ -96,7 +96,8 @@ input[type="file"]{
 }
 #capture .img-lists__element .month span .fa-solid{
 	display:inline-block;
-	font-size:1vw;
+	margin-top:5%;
+	font-size:1.2vw;
 }
 .app .not-captured {
 	margin-top:20px;
