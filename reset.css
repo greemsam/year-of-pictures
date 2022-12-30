@@ -66,9 +66,6 @@ body{
 	left:0;
 	z-index:-1;
 }
-#capture .img-lists__element img.updated{
-	z-index:2;
-}
 #capture .img-lists__element label{
 	z-index:1; 
 	display:block;
