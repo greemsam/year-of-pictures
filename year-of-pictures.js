@@ -43,13 +43,12 @@ for(const key of Object.keys(picturesByYear)){
 		const targetFilesArray = Array.from(e.target.files)
 		const selectedFile = targetFilesArray.map(file => {return URL.createObjectURL(file)})
 		imgTagLists.setAttribute('src', selectedFile)
-		imgTagLists.classList.add('updated')
 	})
 }
 
 // 배경색 출력 
 for(let i = 0; i<imgListArray.length; i++){
-	imgListArray[i].style.background = imgListBackgrounds[i]
+	imgListArray[i].style.backgroundColor = imgListBackgrounds[i]
 }
 
 //제목
