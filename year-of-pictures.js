@@ -59,11 +59,11 @@ const saveAs = (url, fileName) =>{
 const hideControlButtons = () =>{
   if(window.innerWidth < 800){
     $('meta[name=viewport]').content = 'width=800, initial-scale=1.0, user-scalable=no'
-    $('.screen-control').forEach(item => item.classList.add('display-none'))
+    $('#screen-control').classList.add('display-none')
   }
   else{
     $('meta[name=viewport]').content = 'width=device-width, initial-scale=1.0, user-scalable=no'
-    $('.screen-control').forEach(item => item.classList.remove('display-none'))
+    $('#screen-control').classList.remove('display-none')
   }
 }
 
@@ -93,10 +93,14 @@ $('h1').innerHTML = `My Drawings in ${new Date().getFullYear()}`
 $('#set-default-screen').addEventListener('click', ()=>{
 	$('#app').classList.remove(...classForScreenSizes)
 	$('#app').classList.add('default-screen')
+  $('#set-huge-screen').classList.remove('selected')
+  $('#set-default-screen').classList.add('selected')
 })
 $('#set-huge-screen').addEventListener('click', ()=>{
 	$('#app').classList.remove(...classForScreenSizes)
 	$('#app').classList.add('huge-screen')
+  $('#set-default-screen').classList.remove('selected')
+  $('#set-huge-screen').classList.add('selected')
 })
 
 //캡쳐 버튼

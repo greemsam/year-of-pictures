@@ -9,6 +9,10 @@
 </head>
 <body>
 	<div id="app" class="default-screen">
+    <div class="description">
+      <p>* Upload your drawings by clicking each month.</p>
+      <p>* Title and image lists are only captured when you click the capture button.</p>
+    </div>
 		<div id="capture" class="app__capture">
 			<h1></h1>
 			<div class="img-lists">
@@ -113,16 +117,14 @@
 	</div>
 	<div class="bottom-ui">
 		<div class="bottom-ui__wrapper">
-			<button id="set-default-screen" class="screen-control">DEFAULT SIZE</button>
-			<button id="set-huge-screen" class="screen-control">HUGE SIZE</button>
+      <div id="screen-control">
+        <button id="set-default-screen" class="selected">DEFAULT SIZE</button>
+			  <button id="set-huge-screen">HUGE SIZE</button>
+      </div>
 			<button id="capture-button">
-				<i class="fa-solid fa-camera"></i>
+				<i class="fa-solid fa-camera"></i><br/>
 				Capture
 			</button>
-			<div class="description">
-				<p>* Upload your drawings by clicking each month.</p>
-				<p>* Title and image lists are only captured when you click the capture button.</p>
-			</div>
 		</div>
 	</div>	
 </body>

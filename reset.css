@@ -15,7 +15,7 @@ body{
 	background:#000;
 }
 #app{
-	padding:70px 20px;
+	padding:40px 20px 120px;
 	margin:0 auto;
 
 }
@@ -24,6 +24,14 @@ body{
 }
 .default-screen{
 	width:800px;
+}
+.description {
+  padding-left:20px;
+	font-size: 13px;
+}
+.description p{
+	margin-bottom: 6px;
+	color:#fff;
 }
 .app__capture{
 	padding:20px; 
@@ -111,6 +119,7 @@ body{
 	font-size:2em;
 }
 .bottom-ui{
+  height:122px;
 	width:100%;
 	position: fixed;
 	bottom:0;
@@ -126,38 +135,38 @@ body{
 .bottom-ui .bottom-ui__wrapper>*{
 	display:inline-block; 
 }
-.bottom-ui .bottom-ui__wrapper .description {
-	width:100%;
-	font-size: 13px;
-	margin:0px auto;
+.bottom-ui .bottom-ui__wrapper #screen-control{
+  float:right;
+  margin-top: 30px;
+  margin-right: 32px;
 }
-.bottom-ui .bottom-ui__wrapper .description p{
-	margin-bottom: 6px;
-	color:#fff;
-}
-
-.bottom-ui .bottom-ui__wrapper .screen-control{
-	min-width:80px;
-	max-width:200px; 
+.bottom-ui .bottom-ui__wrapper #screen-control button{
+  width:140px; 
 	padding:12px;
 	height:36px;
 	border:none; 
-	background:#5250ce;
 	color:#fff;
 	border-radius:6px;
 	font-weight: 600;
+  background:none;
 }
-.bottom-ui .bottom-ui__wrapper .screen-control.display-none{
+.bottom-ui .bottom-ui__wrapper #screen-control button.selected{
+  background:#5250ce;
+}
+.bottom-ui .bottom-ui__wrapper #screen-control.display-none{
   display:none;
 }
 .bottom-ui .bottom-ui__wrapper #capture-button{
-	float:right;
-	width:60px;
-	height:60px; 
-	background:#000;
+	position: absolute;
+  top:20px; 
+  left:50%;
+  transform:translate(-50%);
+	width:80px;
+	height:80px; 
+	background:#5250ce;
+  border-radius:50%;
 	color:#fff;
 	border:none;
-	border-radius:6px; 
 }
 
 .bottom-ui .bottom-ui__wrapper #capture-button i{
