@@ -84,7 +84,7 @@ for(let i = 0; i<imgListArray.length; i++){
 }
 
 //제목
-$('h1').innerHTML = `My Drawings in ${new Date().getFullYear()}`
+$('h1').innerHTML = `My Drawings in 2022` //${new Date().getFullYear()}
 
 
 //스크린 조정
