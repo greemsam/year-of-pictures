@@ -59,11 +59,9 @@ const saveAs = (url, fileName) =>{
 const hideControlButtons = () =>{
   if(window.outerWidth < 800){
     $('meta[name=viewport]').content = 'width=800, initial-scale=1.0, user-scalable=no'
-    $('#screen-control').classList.add('display-none')
   }
   else{
     $('meta[name=viewport]').content = 'width=device-width, initial-scale=1.0, user-scalable=no'
-    $('#screen-control').classList.remove('display-none')
   }
 }
 

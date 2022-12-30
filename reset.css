@@ -153,9 +153,6 @@ body{
 .bottom-ui .bottom-ui__wrapper #screen-control button.selected{
   background:#5250ce;
 }
-.bottom-ui .bottom-ui__wrapper #screen-control.display-none{
-  display:none;
-}
 .bottom-ui .bottom-ui__wrapper #capture-button{
 	position: absolute;
   top:20px; 
@@ -172,4 +169,10 @@ body{
 .bottom-ui .bottom-ui__wrapper #capture-button i{
 	font-size:1.5em;
 	margin-bottom:4px;
+}
+
+@media screen and (max-width:800px){
+  .bottom-ui .bottom-ui__wrapper #screen-control{
+    display:none;
+  }
 }
