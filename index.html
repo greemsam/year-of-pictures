@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+	<link rel="stylesheet" href="reset.css">
+	<title>Year Of Pictures</title>
+</head>
+<body>
+	<div class="app">
+		<div id="capture">
+			<input class="title" type="text" placeholder="제목 입력...">
+			<div class="img-lists">
+				<div class="img-lists__element">
+					<img src="" alt="" id="jan-img">
+					<label for="jan"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="feb-img">
+					<label for="feb"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="mar-img">
+					<label for="mar"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="apr-img">
+					<label for="apr"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="may-img">
+					<label for="may"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="jun-img">
+					<label for="jun"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="jul-img">
+					<label for="jul"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="aug-img">
+					<label for="aug"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="sep-img">
+					<label for="sep"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="oct-img">
+					<label for="oct"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="nov-img">
+					<label for="nov"></label>
+				</div>
+				<div class="img-lists__element">
+					<img src="" alt="" id="dec-img">
+					<label for="dec"></label>
+				</div>
+			</div>
+			<input id="jan" type="file" accept="image/*">
+			<input id="feb" type="file" accept="image/*">
+			<input id="mar" type="file" accept="image/*">
+			<input id="apr" type="file" accept="image/*">
+			<input id="may" type="file" accept="image/*">
+			<input id="jun" type="file" accept="image/*">
+			<input id="jul" type="file" accept="image/*">
+			<input id="aug" type="file" accept="image/*">
+			<input id="sep" type="file" accept="image/*">
+			<input id="oct" type="file" accept="image/*">
+			<input id="nov" type="file" accept="image/*">
+			<input id="dec" type="file" accept="image/*">
+		</div>
+		<div class="not-captured">
+			<button class="not-captured__capture-button" onclick="captureForYear()">캡쳐하기</button>
+			<div class="not-captured__description">
+				<p>* 각 화면에 이미지를 업로드하시고 캡쳐하기 버튼을 누르시면 됩니다.</p>
+				<p>* 캡쳐하기 버튼과 그 하단의 설명 문구는 캡쳐되지 않습니다.</p>
+			</div>
+		</div>
+	</div>	
+</body>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="year-of-pictures.js"></script>
+</html>
