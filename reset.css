@@ -11,8 +11,11 @@ ul, li, ol{
 input[type="file"]{
 	display:none;
 }
+body{
+	background:#000;
+}
 #app{
-	padding:20px;
+	padding:70px 20px;
 	margin:0 auto;
 
 }
@@ -22,38 +25,6 @@ input[type="file"]{
 }
 .default-screen{
 	width:800px;
-}
-.app-header-buttons{
-	width:100%;
-	padding:12px;
-	background:#000;
-	
-}
-.app-header-buttons .screen-control{
-	min-width:80px;
-	max-width:200px; 
-	padding:12px;
-	height:36px;
-	border:none; 
-	background:#5250ce;
-	color:#fff;
-	border-radius:6px;
-	font-weight: 600;
-}
-.app-header-buttons .capture-button{
-	float:right;
-	width:4vw;
-	height:4vw; 
-	background:#000;
-	font-size:1em;
-	color:#fff;
-	border:none;
-	border-radius:6px; 
-}
-
-.app-header-buttons .capture-button i{
-	font-size:2vw;
-	margin-bottom:4px;
 }
 #capture{
 	padding:20px; 
@@ -136,17 +107,54 @@ input[type="file"]{
 	margin-top:0.5em;
 	font-size:1em;
 }
-#app .not-captured {
-	margin-top:20px;
-}
- 
-#app .description {
+.bottom-ui{
 	width:100%;
-	padding:14px 20px;
-	font-size: 13px;
-	background:#f5f5f5;
-	margin:20px auto;
+	position: fixed;
+	bottom:0;
+	z-index:9999;
+	padding:12px;
+	background:#000;
 }
-#app .description p{
+.bottom-ui .bottom-ui__wrapper{
+	width:100%;
+	max-width:800px;
+	margin:0 auto;
+}
+.bottom-ui .bottom-ui__wrapper>*{
+	display:inline-block; 
+}
+.bottom-ui .bottom-ui__wrapper .description {
+	width:100%;
+	font-size: 13px;
+	margin:0px auto;
+}
+.bottom-ui .bottom-ui__wrapper .description p{
 	margin-bottom: 6px;
+	color:#fff;
+}
+
+.bottom-ui .bottom-ui__wrapper .screen-control{
+	min-width:80px;
+	max-width:200px; 
+	padding:12px;
+	height:36px;
+	border:none; 
+	background:#5250ce;
+	color:#fff;
+	border-radius:6px;
+	font-weight: 600;
+}
+.bottom-ui .bottom-ui__wrapper .capture-button{
+	float:right;
+	width:60px;
+	height:60px; 
+	background:#000;
+	color:#fff;
+	border:none;
+	border-radius:6px; 
+}
+
+.bottom-ui .bottom-ui__wrapper .capture-button i{
+	font-size:1.5em;
+	margin-bottom:4px;
 }
