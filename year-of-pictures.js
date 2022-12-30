@@ -1,7 +1,12 @@
 'use strict'
 
 const $ = (dom) => {
-	return document.querySelector(dom)
+  if(dom.includes('.')){
+    return document.querySelectorAll(dom)
+  }
+  else{
+    return document.querySelector(dom)
+  }
 }
 
 const picturesByYear = {
@@ -36,35 +41,6 @@ const imgListArray = document.querySelectorAll('.img-lists__element')
 const imgListMonthArray = document.querySelectorAll('.month')
 const classForScreenSizes = ["default-screen", "huge-screen"];
 
-//각 엘러먼트에 이미지 업로드 시 화면에 출력
-for(const key of Object.keys(picturesByYear)){
-	const imgTagLists = $(`#${key}-img`)
-	picturesByYear[key].addEventListener('change', (e)=>{
-		const targetFilesArray = Array.from(e.target.files)
-		const selectedFile = targetFilesArray.map(file => {return URL.createObjectURL(file)})
-		imgTagLists.setAttribute('src', selectedFile)
-	})
-}
-
-// 배경색 출력 
-for(let i = 0; i<imgListArray.length; i++){
-	imgListArray[i].style.backgroundColor = imgListBackgrounds[i]
-}
-
-//제목
-$('h1').innerHTML = `My Drawings in ${new Date().getFullYear()}`
-
-
-//스크린 조정
-$('.set-default-screen').addEventListener('click', ()=>{
-	$('#app').classList.remove(...classForScreenSizes)
-	$('#app').classList.add('default-screen')
-})
-$('.set-huge-screen').addEventListener('click', ()=>{
-	$('#app').classList.remove(...classForScreenSizes)
-	$('#app').classList.add('huge-screen')
-})
-
 //저장하기 
 const saveAs = (url, fileName) =>{
 	// 캡쳐된 파일을 이미지 파일로 내보낸다.
@@ -79,9 +55,53 @@ const saveAs = (url, fileName) =>{
 		window.open(url); 
 	} 
 }
+
+const hideControlButtons = () =>{
+  if(window.innerWidth < 800){
+    $('meta[name=viewport]').content = 'width=800, initial-scale=1.0, user-scalable=no'
+    $('.screen-control').forEach(item => item.classList.add('display-none'))
+  }
+  else{
+    $('meta[name=viewport]').content = 'width=device-width, initial-scale=1.0, user-scalable=no'
+    $('.screen-control').forEach(item => item.classList.remove('display-none'))
+  }
+}
+
+addEventListener('resize', hideControlButtons)
+
+//각 엘러먼트에 이미지 업로드 시 화면에 출력
+for(const key of Object.keys(picturesByYear)){
+	const imgTagLists = $(`#${key}-img`)
+	picturesByYear[key].addEventListener('change', (e)=>{
+		const targetFilesArray = Array.from(e.target.files)
+		const selectedFile = targetFilesArray.map(file => {return URL.createObjectURL(file)})
+    imgTagLists.classList.add('updated')
+		imgTagLists.setAttribute('src', selectedFile)
+	})
+}
+
+// 배경색 출력 
+for(let i = 0; i<imgListArray.length; i++){
+	imgListArray[i].style.backgroundColor = imgListBackgrounds[i]
+}
+
+//제목
+$('h1').innerHTML = `My Drawings in ${new Date().getFullYear()}`
+
+
+//스크린 조정
+$('#set-default-screen').addEventListener('click', ()=>{
+	$('#app').classList.remove(...classForScreenSizes)
+	$('#app').classList.add('default-screen')
+})
+$('#set-huge-screen').addEventListener('click', ()=>{
+	$('#app').classList.remove(...classForScreenSizes)
+	$('#app').classList.add('huge-screen')
+})
+
 //캡쳐 버튼
-$('.capture-button').addEventListener('click', ()=>{
+$('#capture-button').addEventListener('click', ()=>{
 	html2canvas($('#capture')).then(canvas => {
-		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
+		saveAs(canvas.toDataURL('image/jpeg'), 'year-of-pictures.jpg')
 	})
 })
