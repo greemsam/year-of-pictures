@@ -27,10 +27,12 @@ input[type="file"]{
 	color:#fff;
 }
 #capture .fa-image{
+	position: absolute;
 	display:block; 
 	font-size:3vw;
-	line-height: 11vw;
-	text-align: center;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
 	color:rgba(255,255,255, 0.2)
 }
 #capture .img-lists{
@@ -90,10 +92,12 @@ input[type="file"]{
 	letter-spacing: 2px;
 	display:block;
 	font-weight: 600;
-	font-size:1vw;
 	transform:rotateZ(-45deg);
 }
-
+#capture .img-lists__element .month span .fa-solid{
+	display:inline-block;
+	font-size:1vw;
+}
 .app .not-captured {
 	margin-top:20px;
 }
