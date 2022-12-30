@@ -81,7 +81,7 @@ const saveAs = (url, fileName) =>{
 	} 
 }
 //캡쳐 버튼
-$('.not-captured__capture-button').addEventListener('click', ()=>{
+$('.capture-button').addEventListener('click', ()=>{
 	html2canvas($('#capture')).then(canvas => {
 		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
 	})
