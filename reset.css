@@ -44,6 +44,10 @@ input[type="file"]{
 	width:100%;
 	padding-top:100%;
 	display:block;
+	position: absolute;
+	object-fit: cover;
+	top:0; 
+	left:0;
 }
 #capture .img-lists__element label{
 	z-index:2; 
