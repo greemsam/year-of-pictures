@@ -67,7 +67,6 @@ body{
 	display:none;
 }
 .app__capture .img-lists__element img.updated{
-  width:100%;
 	height:100%;
 	display:block;
 	position: absolute;
