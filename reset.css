@@ -72,7 +72,8 @@ body{
 	position: absolute;
 	object-fit: cover;
 	top:0; 
-	left:0;
+	left:50%;
+  	transform:translateX(-50%);
 	z-index:1;
 }
 .app__capture .img-lists__element label{
