@@ -7,6 +7,7 @@ const $ = (dom) => {
 		return document.querySelectorAll(dom)
 	}
 }
+const selectedScreen = {value:''}
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 const classForScreenSizes = ["screen-800", "screen-1000", "screen-device-width"];
 const classForShapes = ['one-to-one', 'horizon', 'vertical']
@@ -99,11 +100,6 @@ window.addEventListener('click', (e)=>{
 		$('#option__list').classList.add('hide')
 	}
 })
-window.addEventListener('resize', ()=>{
-	if(window.outerWidth < 800){
-		$('meta[name="viewport"]')[0].setAttribute('content', `width=800, initial-scale=1.0, user-scalable=no`)
-	}
-})
 
 //제목
 $('h1')[0].innerHTML = `My Drawings in ${new Date().getFullYear()}`
@@ -114,18 +110,14 @@ $('#option__toggle').addEventListener('click', ()=>{
 })
 //스크린 조정 버튼 
 $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
-	const buttonData = item.dataset.size
-	const viewportContentString = `width=${buttonData}, initial-scale=1.0, user-scalable=no`
+	selectedScreen.value = item.dataset.size
 	for(let i = 0; i<$('.screen-control').length; i++){
 		$('.screen-control')[i].classList.remove('selected')
 	}
 	item.classList.add('selected')
 	$('#app').classList.remove(...classForScreenSizes)
-	$('#app').classList.add(`screen-${buttonData}`)
+	$('#app').classList.add(`screen-${selectedScreen.value}`)
 	$('#option__list').classList.toggle('hide')
-	if(window.outerWidth < 800){
-		$('meta[name="viewport"]')[0].setAttribute('content', viewportContentString)
-	}
 }))
 
 // 이미지 엘러먼트 모양 적용
@@ -155,7 +147,12 @@ const saveAs = (url, fileName) =>{
 }
 //캡쳐 버튼
 $('#capture-button').addEventListener('click', ()=>{
+	if(window.outerWidth < 800){
+		const viewportContentString = `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`
+		$('meta[name="viewport"]')[0].setAttribute('content', viewportContentString)
+	}
 	html2canvas($('#capture')).then(canvas => {
 		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
 	})
+	$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 })
