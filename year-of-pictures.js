@@ -117,7 +117,7 @@ $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 	$('#app').classList.remove(...classForScreenSizes)
 	$('#app').classList.add(`screen-${buttonData}`)
 	$('#option__list').classList.toggle('hide')
-	$('meta[name="viewport"]')[0].setAttribute('content', `width=${buttonData}`)
+	$('meta[name="viewport"]')[0].setAttribute('content', `width=${buttonData}, initial-scale=1.0, user-scalable=no`)
 }))
 
 // 이미지 엘러먼트 모양 적용
