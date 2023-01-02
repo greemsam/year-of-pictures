@@ -75,11 +75,14 @@ const addEventShowingPreview = (index) =>{
 			if(selectedShape.value === 'one-to-one' && imgTagLists.clientWidth < imgTagLists.clientHeight){
 				imgTagLists.classList.add('vertical-fit')
 			}
-			else if(selectedShape.value !== 'one-to-one'){
-				imgTagLists.classList.add('vertical-fit')
+			else if(selectedShape.value === 'vertical'){
+				imgTagLists.classList.remove('vertical-fit')
+			}
+			else if(selectedShape.value === 'horizon'){
+				imgTagLists.classList.add('vertical-fit')	
 			}
 			else{
-				imgTagLists.classList.remove('vertical-fit')	
+				imgTagLists.classList.remove('vertical-fit')
 			}
 		}
 	}
