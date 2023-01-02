@@ -7,7 +7,7 @@ const $ = (dom) => {
 		return document.querySelectorAll(dom)
 	}
 }
-const selectedScreen = {value:'800'}
+const selectedScreen = {value:'device-width'}
 const selectedShape = {value:'one-to-one'}
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 const classForScreenSizes = ["screen-800", "screen-1000", "screen-device-width"];
@@ -154,9 +154,11 @@ const saveAs = (url, fileName) =>{
 }
 //캡쳐 버튼
 $('#capture-button').addEventListener('click', ()=>{
-	if(window.outerWidth < 800){
-		const viewportContentString = `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`
-		$('meta[name="viewport"]')[0].setAttribute('content', viewportContentString)
+	if(window.outerWidth < 800 && selectedScreen.value === 'device-width'){
+		$('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
+	}
+	else if(window.outerWidth < 800 && selectedScreen.value !== 'device-width'){
+		$('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
 	}
 	html2canvas($('#capture')).then(canvas => {
 		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
