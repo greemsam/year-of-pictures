@@ -11,37 +11,138 @@ ul, li, ol{
 input[type="file"]{
 	display:none;
 }
+.float-clear:after{
+	clear:both;
+	display:block;
+	content:'';
+}
 body{
 	background:#000;
 }
 #app{
-	padding:40px 20px 120px;
+	padding:70px 20px 136px;
 	margin:0 auto;
-
 }
-.huge-screen{
+
+.screen-device-width{
 	width:100%;
 }
-.default-screen{
+.screen-1000{
+	width:1000px;
+}
+.screen-800{
 	width:800px;
 }
-.description {
-  padding-left:20px;
-	font-size: 13px;
+
+#top-ui{
+	padding:10px 20px;
+	width:inherit;
+	top:0;
+	left:50%;
+	transform:translate(-50%);
+	z-index:9999;
+	position: fixed;
+	background:#000;
+	height:72px;
 }
-.description p{
+#top-ui div .description {
+	float:left;
+	font-size: 13px;
+	margin:0px auto;
+}
+#top-ui div .description p{
 	margin-bottom: 6px;
 	color:#fff;
 }
-.app__capture{
-	padding:20px; 
+#top-ui div #option__toggle{
+	position: relative;
+	display:block;
+	width:52px;
+	height:52px;
+	float:right;
+	border-radius:6px;
+	background:#5250ce;
+	color:#fff;
+	border:none;
+}
+#top-ui div #option__toggle #option__toggle-click-area{
+	position: absolute;
+	width:100%;
+	height:100%;
+	display:block; 
+	left:0; 
+	top:0
+}
+#top-ui #option__list{
+	float:right;
+	width:200px; 
+	padding:12px;
+	background:#5250ce;
+	border-radius:6px;
+	margin-top:10px;
+	box-shadow:0 0 5px 1px rgba(0,0,0,0.2);
+}
+#top-ui #option__list button.screen-control{
+	display:block;
+	width:100%; 
+	height:40px;
+	background:none;
+	color:#fff;
+	border:none;
+	border-radius:6px;
+	text-align: left;
+	padding-left:12px;
+}
+#top-ui #option__list button.screen-control.selected{
+	background:#2c2b72;
+}
+#top-ui #option__list .shape-control{
+	margin-top:10px;
+}
+#top-ui #option__list .shape-control button{
+	width:40px; 
+	height:40px; 
+	border-radius:6px;	
+	border:none;
+	background:none;
+	display:block;
+	float:left;
+	margin-right:6px;
+	border:1px solid #6d76d7;
+}
+#top-ui #option__list .shape-control button span{
+	display:block;
+	border:2px solid #fff;
+	margin:0 auto;
+}
+#top-ui #option__list .shape-control button.selected{
+	border:1px solid #2c2b72;
+	background:#2c2b72;
+}
+#top-ui #option__list .shape-control button span.one-to-one{
+	width:16px; 
+	height:16px;
+}
+#top-ui #option__list .shape-control button span.horizon{
+	width:24px;
+	height:16px;
+}
+#top-ui #option__list .shape-control button span.vertical{
+	width:16px;
+	height:24px;
+}
+#top-ui #option__list.hide{
+	display:none;
+}
+#capture{
+	padding:20px 0; 
 	background:#000;
 }
-.app__capture h1{
+#capture h1{
 	margin-bottom:20px;
 	color:#fff;
 }
-.app__capture .fa-image{
+#capture .fa-image{
 	position: absolute;
 	display:block; 
 	font-size:3vw;
@@ -50,34 +151,45 @@ body{
 	transform:translate(-50%, -50%);
 	color:rgba(255,255,255, 0.2)
 }
-.app__capture .img-lists{
+#capture .img-lists{
 	width:100%;
 	display:flex; 
 	justify-content:flex-start;
 	flex-wrap: wrap;
-
 }
-.app__capture .img-lists__element{
+#capture .img-lists .img-lists__element{
 	position: relative;
 	width:25%;
-	padding-top:25%;
 	overflow: hidden;
 }
-.app__capture .img-lists__element img{
-	display:none;
+#capture .img-lists.one-to-one .img-lists__element{
+	padding-top:25%;
 }
-.app__capture .img-lists__element img.updated{
+#capture .img-lists.horizon .img-lists__element{
+	padding-top:16%;
+}
+#capture .img-lists.vertical .img-lists__element{
+	padding-top:32%;
+}
+#capture .img-lists .img-lists__element img{
 	height:100%;
 	display:block;
 	position: absolute;
 	object-fit: cover;
 	top:0; 
 	left:50%;
-  	transform:translateX(-50%);
-	z-index:1;
+	transform:translate(-50%);
+	z-index:-1;
 }
-.app__capture .img-lists__element label{
-	z-index:2; 
+#capture .img-lists .img-lists__element img.updated{
+	z-index:2;
+}
+#capture .img-lists .img-lists__element img.vertical-fit{
+	height:auto;
+	width:100%;
+}
+#capture .img-lists .img-lists__element label{
+	z-index:1; 
 	display:block;
 	position: absolute;
 	width:100%; 
@@ -85,41 +197,35 @@ body{
 	top:0;
 	left:0;
 }
-.app__capture .img-lists__element .month{
+#capture .img-lists .img-lists__element .month-triangle{
 	z-index:10; 
-	width:40%; 
-	height:40%;
+	width:80px; 
+	height:80px;
 	position: absolute;
-	top:-20%;
-	left:-20%;
+	top:-40px;
+	left:-40px;
 	transform:translate(-10%, -60%);
 	transform:rotateZ(45deg);
 	text-align: center;
 	color: #ffffff;
     background: #000000;
 }
-.app__capture .img-lists__element .month span{
+#capture .img-lists .img-lists__element .month-number{
+	z-index:11;
 	position: absolute;
-	top: 21%;
-    left: 53%;
-	width:100%;
-	height:100%;
+	left:8px;
+	top:4px;
 	letter-spacing: 2px;
 	display:block;
 	font-weight: 600;
-	transform:rotateZ(-45deg);
+	color:#fff;
 }
-.app__capture .img-lists__element .month span .fa-solid{
+#capture .img-lists .img-lists__element .month span .fa-solid{
 	display:inline-block;
 	margin-top:0.5em;
 	font-size:1em;
 }
-.huge-screen .app__capture .img-lists__element .month span .fa-solid{
-	margin-top:4px;
-	font-size:2em;
-}
 .bottom-ui{
-  height:122px;
 	width:100%;
 	position: fixed;
 	bottom:0;
@@ -135,44 +241,39 @@ body{
 .bottom-ui .bottom-ui__wrapper>*{
 	display:inline-block; 
 }
-.bottom-ui .bottom-ui__wrapper #screen-control{
-  float:right;
-  margin-top: 30px;
-  margin-right: 32px;
-}
-.bottom-ui .bottom-ui__wrapper #screen-control button{
-  width:140px; 
+
+.bottom-ui .bottom-ui__wrapper .screen-control{
+	min-width:80px;
+	max-width:200px; 
 	padding:12px;
 	height:36px;
 	border:none; 
+	background:#5250ce;
 	color:#fff;
 	border-radius:6px;
 	font-weight: 600;
-  background:none;
 }
-.bottom-ui .bottom-ui__wrapper #screen-control button.selected{
-  background:#5250ce;
-}
-.bottom-ui .bottom-ui__wrapper #capture-button{
-	position: absolute;
-  top:20px; 
-  left:50%;
-  transform:translate(-50%);
-	width:80px;
-	height:80px; 
-	background:#5250ce;
-  border-radius:50%;
+.bottom-ui #capture-button{
+	display:block;
+	width:60px;
+	height:60px; 
+	background:#000;
 	color:#fff;
 	border:none;
+	border-radius:6px; 
+	margin:0 auto;
 }
 
-.bottom-ui .bottom-ui__wrapper #capture-button i{
+.bottom-ui #capture-button i{
 	font-size:1.5em;
 	margin-bottom:4px;
 }
 
 @media screen and (max-width:800px){
-  .bottom-ui .bottom-ui__wrapper #screen-control{
-    display:none;
-  }
+	#top-ui {
+		width:100%;
+	}
+	#top-ui div .description {
+		width:calc(100% -  62px);
+	}
 }

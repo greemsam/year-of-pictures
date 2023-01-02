@@ -3,129 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+	<meta name="viewport" content="width=800, initial-scale=1.0, user-scalable=no" >
 	<link rel="stylesheet" href="reset.css">
 	<title>Year Of Pictures</title>
 </head>
 <body>
-	<div id="app" class="default-screen">
-    <div class="description">
-      <p>* Upload your drawings by clicking each month.</p>
-      <p>* Title and image lists are only captured when you click the capture button.</p>
-    </div>
-		<div id="capture" class="app__capture">
-			<h1></h1>
-			<div class="img-lists">
-				<div class="img-lists__element">
-					<label for="jan">
-            <img src="" alt="" id="jan-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-1"></i></span></div>
+	<div id="app" class="screen-800">
+		<div id="top-ui" class="float-clear">
+			<div class="float-clear">
+				<div class="description">
+					<p>* Upload your drawings by clicking each month.</p>
+					<p>* Title and image lists are only captured when you click the capture button.</p>
 				</div>
-				<div class="img-lists__element">					
-					<label for="feb">
-            <img src="" alt="" id="feb-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-2"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="mar">
-            <img src="" alt="" id="mar-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-3"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="apr">
-            <img src="" alt="" id="apr-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-4"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="may">
-            <img src="" alt="" id="may-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-5"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="jun">
-            <img src="" alt="" id="jun-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-6"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="jul">
-            <img src="" alt="" id="jul-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-7"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="aug">
-            <img src="" alt="" id="aug-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-8"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="sep">
-            <img src="" alt="" id="sep-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-9"></i></span></div>
-				</div>
-				<div class="img-lists__element"/>
-					<label for="oct">
-            <img src="" alt="" id="oct-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-1"></i><i class="fa-solid fa-0"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="nov">
-            <img src="" alt="" id="nov-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-1"></i><i class="fa-solid fa-1"></i></span></div>
-				</div>
-				<div class="img-lists__element">
-					<label for="dec">
-            <img src="" alt="" id="dec-img"/>
-						<i class="fa-regular fa-image"></i>
-					</label>
-					<div class="month"><span><i class="fa-solid fa-1"></i><i class="fa-solid fa-2"></i></span></div>
+				<button id="option__toggle">
+					<span id="option__toggle-click-area"></span>
+					<i class="fa-solid fa-bars"></i>
+				</button>
+			</div>
+			<div id="option__list" class="hide">
+				<button class="screen-control selected" data-size="800">800PX SIZE</button>
+				<button class="screen-control" data-size="1000">1000PX SIZE</button>
+				<button class="screen-control" data-size="device-width">FULL SIZE(100%)</button>
+				<div class="shape-control floar-clear">
+					<button data-shape="one-to-one" class="selected">
+						<span class="one-to-one"></span>
+					</button>
+					<button data-shape="horizon">
+						<span class="horizon"></span>
+					</button>
+					<button data-shape="vertical" >
+						<span class="vertical"></span>
+					</button>
 				</div>
 			</div>
-			<input id="jan" type="file" accept="image/*">
-			<input id="feb" type="file" accept="image/*">
-			<input id="mar" type="file" accept="image/*">
-			<input id="apr" type="file" accept="image/*">
-			<input id="may" type="file" accept="image/*">
-			<input id="jun" type="file" accept="image/*">
-			<input id="jul" type="file" accept="image/*">
-			<input id="aug" type="file" accept="image/*">
-			<input id="sep" type="file" accept="image/*">
-			<input id="oct" type="file" accept="image/*">
-			<input id="nov" type="file" accept="image/*">
-			<input id="dec" type="file" accept="image/*">
+		</div>
+		<div id="capture">
+			<h1><!--title--></h1>
+			<div class="img-lists one-to-one"><!--img-components--></div>
 		</div>
 	</div>
 	<div class="bottom-ui">
-		<div class="bottom-ui__wrapper">
-      <div id="screen-control">
-        <button id="set-default-screen" class="selected">DEFAULT SIZE</button>
-			  <button id="set-huge-screen">HUGE SIZE</button>
-      </div>
-			<button id="capture-button">
-				<i class="fa-solid fa-camera"></i><br/>
-				Capture
-			</button>
-		</div>
+		<button id="capture-button">
+			<i class="fa-solid fa-camera"></i>
+			Capture
+		</button>
 	</div>	
 </body>
 <script src="https://kit.fontawesome.com/f272e18153.js" crossorigin="anonymous"></script>
