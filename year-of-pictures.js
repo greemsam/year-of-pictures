@@ -99,6 +99,11 @@ window.addEventListener('click', (e)=>{
 		$('#option__list').classList.add('hide')
 	}
 })
+window.addEventListener('resize', ()=>{
+	if(window.outerWidth < 800){
+		$('meta[name="viewport"]')[0].setAttribute('content', `width=800, initial-scale=1.0, user-scalable=no`)
+	}
+})
 
 //제목
 $('h1')[0].innerHTML = `My Drawings in ${new Date().getFullYear()}`
@@ -110,6 +115,7 @@ $('#option__toggle').addEventListener('click', ()=>{
 //스크린 조정 버튼 
 $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 	const buttonData = item.dataset.size
+	const viewportContentString = `width=${buttonData}, initial-scale=1.0, user-scalable=no`
 	for(let i = 0; i<$('.screen-control').length; i++){
 		$('.screen-control')[i].classList.remove('selected')
 	}
@@ -117,7 +123,9 @@ $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 	$('#app').classList.remove(...classForScreenSizes)
 	$('#app').classList.add(`screen-${buttonData}`)
 	$('#option__list').classList.toggle('hide')
-	$('meta[name="viewport"]')[0].setAttribute('content', `width=${buttonData}, initial-scale=1.0, user-scalable=no`)
+	if(window.outerWidth < 800){
+		$('meta[name="viewport"]')[0].setAttribute('content', viewportContentString)
+	}
 }))
 
 // 이미지 엘러먼트 모양 적용
