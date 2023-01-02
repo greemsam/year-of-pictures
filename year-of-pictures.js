@@ -7,7 +7,8 @@ const $ = (dom) => {
 		return document.querySelectorAll(dom)
 	}
 }
-const selectedScreen = {value:''}
+const selectedScreen = {value:'800'}
+const selectedShape = {value:'one-to-one'}
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 const classForScreenSizes = ["screen-800", "screen-1000", "screen-device-width"];
 const classForShapes = ['one-to-one', 'horizon', 'vertical']
@@ -71,8 +72,14 @@ const addEventShowingPreview = (index) =>{
 	}
 	const imgFittingBySize = () =>{
 		imgTagLists.onload = () =>{
-			if(imgTagLists.clientWidth < imgTagLists.clientHeight){
+			if(selectedShape.value === 'one-to-one' && imgTagLists.clientWidth < imgTagLists.clientHeight){
 				imgTagLists.classList.add('vertical-fit')
+			}
+			else if(selectedShape.value !== 'one-to-one'){
+				imgTagLists.classList.add('vertical-fit')
+			}
+			else{
+				imgTagLists.classList.remove('vertical-fit')	
 			}
 		}
 	}
@@ -122,13 +129,13 @@ $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 
 // 이미지 엘러먼트 모양 적용
 $('.shape-control button').forEach(item => item.addEventListener('click', (e)=>{
-	const buttonData = item.dataset.shape
+	selectedShape.value = item.dataset.shape
 	for(let i = 0; i<$('.shape-control button').length; i++){
 		$('.shape-control button')[i].classList.remove('selected')
 	}
 	item.classList.add('selected')
 	$('.img-lists')[0].classList.remove(...classForShapes)
-	$('.img-lists')[0].classList.add(buttonData)
+	$('.img-lists')[0].classList.add(selectedShape.value)
 }))
 
 //저장하기 
