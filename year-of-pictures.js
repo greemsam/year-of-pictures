@@ -102,7 +102,7 @@ window.addEventListener('click', (e)=>{
 })
 
 //제목
-$('h1')[0].innerHTML = `My Drawings in ${new Date().getFullYear()}`
+$('h1')[0].innerHTML = `My Drawings in 2022` //${new Date().getFullYear()}
 
 //스크린 조정 옵션 불러오기
 $('#option__toggle').addEventListener('click', ()=>{
