@@ -187,7 +187,7 @@ body{
 #capture .img-lists .img-lists__element img.updated{
 	z-index:2;
 }
-#capture .img-lists .img-lists__element img.vertical-fit{
+#capture .img-lists .img-lists__element img.img-width-100{
 	height:auto;
 	width:100%;
 }

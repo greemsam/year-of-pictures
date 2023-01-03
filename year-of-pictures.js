@@ -63,6 +63,7 @@ const appendImgListElements = async (index, month) =>{
 //이미지 리스트에 이미지 추가
 const addEventShowingPreview = (index) =>{
 	const month = months[index]
+	const imgListElement = $('.img-lists__element')
 	const imgTagLists = $(`#${month}-img`)
 	const previewImg = (event) =>{
 		const targetFilesArray = Array.from(event.target.files)
@@ -72,17 +73,11 @@ const addEventShowingPreview = (index) =>{
 	}
 	const imgFittingBySize = () =>{
 		imgTagLists.onload = () =>{
-			if(selectedShape.value === 'one-to-one' && imgTagLists.clientWidth < imgTagLists.clientHeight){
-				imgTagLists.classList.add('vertical-fit')
-			}
-			else if(selectedShape.value === 'vertical'){
-				imgTagLists.classList.remove('vertical-fit')
-			}
-			else if(selectedShape.value === 'horizon'){
-				imgTagLists.classList.add('vertical-fit')	
+			if(imgListElement[index].clientWidth > imgTagLists.clientWidth){
+				imgTagLists.classList.add('img-width-100')
 			}
 			else{
-				imgTagLists.classList.remove('vertical-fit')
+				imgTagLists.classList.remove('img-width-100')
 			}
 		}
 	}
@@ -139,6 +134,16 @@ $('.shape-control button').forEach(item => item.addEventListener('click', (e)=>{
 	item.classList.add('selected')
 	$('.img-lists')[0].classList.remove(...classForShapes)
 	$('.img-lists')[0].classList.add(selectedShape.value)
+
+	for(const element of months){
+		
+	}
+	if(imgListElement[index].clientWidth > imgTagLists.clientWidth){
+		imgTagLists.classList.add('img-width-100')
+	}
+	else{
+		imgTagLists.classList.remove('img-width-100')
+	}
 }))
 
 //저장하기 
