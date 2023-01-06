@@ -244,6 +244,6 @@ $('#capture-button').addEventListener('click', ()=>{
 	}
 	html2canvas($('#capture')).then(canvas => {
 		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
+		$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 	})
-	$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 })
