@@ -238,15 +238,15 @@ $('#capture-button').addEventListener('click', ()=>{
   const winWidth = {windowWidth:''}
   if(window.outerWidth < 800 && selectedScreen.value === 'device-width'){
     winWidth.windowWidth = 800+'px'
-    $('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
+    //$('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
   }
   else if(window.outerWidth < 800 && selectedScreen.value !== 'device-width'){
     winWidth.windowWidth = selectedScreen.value+'px'
-    $('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
+    //$('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
   }
 	html2canvas($('#capture'), winWidth).then(canvas => {
     
 		saveAs(canvas.toDataURL('image/png', 1), 'year-of-pictures.jpg')
 	})
-  $('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
+  //$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 })
