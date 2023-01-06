@@ -72,7 +72,6 @@ const setMonthStickerSize = (domSelectorName) => {
 	const imgListElement = domSelectorName[0]
 	const monthNumber = $('.month-number')
 	const monthStickerSize = imgListElement.clientWidth * 0.4
-	console.log(imgListElement, monthStickerSize)
 	$('.month-sticker').forEach((item, index) =>{
 		const month = index+1
 		item.style.width = `${monthStickerSize}px`
@@ -236,14 +235,18 @@ $('.shape-control button').forEach(item => item.addEventListener('click', ()=>{
 
 //캡쳐 버튼
 $('#capture-button').addEventListener('click', ()=>{
-	if(window.outerWidth < 800 && selectedScreen.value === 'device-width'){
-		$('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
-	}
-	else if(window.outerWidth < 800 && selectedScreen.value !== 'device-width'){
-		$('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
-	}
-	html2canvas($('#capture')).then(canvas => {
-		saveAs(canvas.toDataURL('image/png'), 'year-of-pictures.jpg')
-	//	$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
+  const winWidth = {windowWidth:''}
+  if(window.outerWidth < 800 && selectedScreen.value === 'device-width'){
+    winWidth.windowWidth = 800+'px'
+    $('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
+  }
+  else if(window.outerWidth < 800 && selectedScreen.value !== 'device-width'){
+    winWidth.windowWidth = selectedScreen.value+'px'
+    $('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
+  }
+	html2canvas($('#capture'), winWidth).then(canvas => {
+    
+		saveAs(canvas.toDataURL('image/png', 1), 'year-of-pictures.jpg')
 	})
+  $('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 })
