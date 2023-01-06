@@ -236,7 +236,7 @@ $('.shape-control button').forEach(item => item.addEventListener('click', ()=>{
 //캡쳐 버튼
 $('#capture-button').addEventListener('click', ()=>{
   const winWidth = {windowWidth:''}
-  if(window.outerWidth < 800 && selectedScreen.value === 'device-width'){
+  if(window.outerWidth < 800){
     winWidth.windowWidth = 800+'px'
    $('meta[name="viewport"]')[0].setAttribute('content', 'width=800, initial-scale=1.0, user-scalable=no')
  }
