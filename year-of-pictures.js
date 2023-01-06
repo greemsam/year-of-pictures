@@ -243,7 +243,9 @@ $('#capture-button').addEventListener('click', ()=>{
 		$('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
 	}
 	html2canvas($('#capture')).then(canvas => {
-		saveAs(canvas.toDataURL('image/*'), 'year-of-pictures.jpg')
+		const base64image = canvas.toDataURL("image/png");
+		download("data:image/png;"+base64image, "qr-code-event" + eventName+".png", "image/png");
+		//saveAs(canvas.toDataURL('image/png'), 'year-of-pictures.jpg')
 		$('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 	})
 })
