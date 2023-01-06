@@ -9,21 +9,37 @@
 </head>
 <body>
 	<div id="app" class="screen-800">
+		<div id="description">
+			<div>
+				<h3>
+					How to use it?
+					<button id="close-description">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</h3>
+				<p>* This pages makes your own drawing calendar for this year.</p>
+				<p>* Upload your drawings by clicking each month and click the "GET MY DRAWING CALENDAR". 
+					Then you can download the image contains the title and your uploaded image lists.</p>
+				<p>* This page does not collect or save any data from users 
+					so be careful every pictures you uploaded will be disappeared when you refreshed this page.
+				</p>
+			</div>
+		</div>
 		<div id="top-ui" class="float-clear">
 			<div class="float-clear">
-				<div class="description">
-					<p>* Upload your drawings by clicking each month.</p>
-					<p>* Title and image lists are only captured when you click the capture button.</p>
-				</div>
 				<button id="option__toggle">
 					<span id="option__toggle-click-area"></span>
 					<i class="fa-solid fa-bars"></i>
+				</button>
+				<button id="description-toggle">
+					<span id="description__toggle-click-area"></span>
+					<i class="fa-solid fa-question"></i>
 				</button>
 			</div>
 			<div id="option__list" class="hide">
 				<button class="screen-control selected" data-size="800">800PX SIZE</button>
 				<button class="screen-control" data-size="1000">1000PX SIZE</button>
-				<button class="screen-control" data-size="device-width">FULL SIZE(100%)</button>
+				<button class="screen-control" id="device-width" data-size="device-width">FULL SIZE(100%)</button>
 				<div class="shape-control floar-clear">
 					<button data-shape="one-to-one" class="selected">
 						<span class="one-to-one"></span>
@@ -38,14 +54,26 @@
 			</div>
 		</div>
 		<div id="capture">
-			<h1><!--title--></h1>
+			<div id="modal-app-title-modify">
+				<div>
+					<h3>
+						Your own title here
+						<button id="close-app-title">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+					</h3>
+					<input id="my-app-title" type="text">
+					<button id="modify-app-title">OK</button>
+				</div>
+			</div>
+			<h1 id="app-title"><!--app-title--></h1>
 			<div class="img-lists one-to-one"><!--img-components--></div>
 		</div>
 	</div>
 	<div class="bottom-ui">
 		<button id="capture-button">
 			<i class="fa-solid fa-camera"></i>
-			Capture
+			GET MY DRAWING CALENDAR
 		</button>
 	</div>	
 </body>
