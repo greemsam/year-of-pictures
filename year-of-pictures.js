@@ -116,14 +116,17 @@ const addEventShowingPreview = (index) =>{
 const resetUpdatedImgs = () => {
 	const updatedImgs = $('.updated')
 	for(let i = 0; i<updatedImgs.length; i++){
-		if(imgListElement.value[i].clientWidth > updatedImgs[i].clientWidth){
-			console.log('width-100')
+    const elementWidth = imgListElement.value[i].clientWidth
+    const elementHeight = imgListElement.value[i].clientHeight
+    const imgWidth = updatedImgs[i].clientWidth
+    const imgHeight = updatedImgs[i].clientHeight
+    
+    if(elementWidth>imgWidth){
 			updatedImgs[i].classList.add('img-width-100')
 		}
-		else{
-			console.log('width-100-removed')
-			updatedImgs[i].classList.remove('img-width-100')
-		}
+    else if(elementHeight>imgHeight){
+      updatedImgs[i].classList.remove('img-width-100')
+    }
 	}
 }
 
@@ -186,6 +189,7 @@ $('#close-app-title').addEventListener('click', ()=>{
 })
 //제목 변경시
 $('#modify-app-title').addEventListener('click', ()=>{
+  window.scrollTo(0,0)
 	$('#app-title').innerHTML = $('#my-app-title').value
 	$('#modal-app-title-modify').classList.remove('show')
 })
@@ -208,6 +212,7 @@ $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 		$('.screen-control')[i].classList.remove('selected')
 	}
 	item.classList.add('selected')
+
 	$('#app').classList.remove(...classForScreenSizes)
 	$('#app').classList.add(`screen-${selectedScreen.value}`)
 	$('#option__list').classList.toggle('hide')
@@ -218,6 +223,7 @@ $('.screen-control').forEach(item => item.addEventListener('click', (e)=>{
 
 // 이미지 엘러먼트 모양 적용
 $('.shape-control button').forEach(item => item.addEventListener('click', ()=>{
+    //정사각형, 직사각형에 선택 표시하기 
 	selectedShape.value = item.dataset.shape
 	for(let i = 0; i<$('.shape-control button').length; i++){
 		$('.shape-control button')[i].classList.remove('selected')
@@ -245,8 +251,7 @@ $('#capture-button').addEventListener('click', ()=>{
     $('meta[name="viewport"]')[0].setAttribute('content', `width=${selectedScreen.value}, initial-scale=1.0, user-scalable=no`)
   }
   window.scrollTo(0,0);
-	html2canvas($('#capture')).then(canvas => {
-    
+	html2canvas($('#capture'), winWidth).then(canvas => {
 		saveAs(canvas.toDataURL('image/png', 1), 'year-of-pictures.jpg')
     $('meta[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no')
 	})
