@@ -200,6 +200,7 @@ input[type="file"]{
 	outline: none; 
 	font-weight:600;
 	margin-bottom:20px;
+	cursor:pointer;
 }
 #capture #modal-app-title-modify{
 	top:0; 
